@@ -34,9 +34,9 @@ class Describe extends ApiCall {
             $input = $this->input;
             $input['async'] = false;
             $input["keywords"] = $data;
-            $body = \GuzzleHttp\Psr7\stream_for(json_encode($input));
+            $body = \GuzzleHttp\Psr7\Utils::streamFor(json_encode($input));
             yield $i++ => function() use ($body, $data) {
-                return $this->client->getGuzzleClient()->postAsync(static::URL_REQUEST_BASE, ['body' => \GuzzleHttp\Psr7\stream_for($body)]);
+                return $this->client->getGuzzleClient()->postAsync(static::URL_REQUEST_BASE, ['body' => \GuzzleHttp\Psr7\Utils::streamFor($body)]);
             };
         }
     }

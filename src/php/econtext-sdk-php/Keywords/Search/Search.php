@@ -62,9 +62,9 @@ class Search extends ApiCall {
                 $input[$k] = $v;
             }
         }
-        $body = \GuzzleHttp\Psr7\stream_for(json_encode($input));
+        $body = \GuzzleHttp\Psr7\Utils::streamFor(json_encode($input));
         # Initial call to get info on the search (number of results, pages, result uri, etc)
-        $result = $this->client->getGuzzleClient()->post(static::URL_REQUEST_BASE, ['body' => \GuzzleHttp\Psr7\stream_for($body)]);
+        $result = $this->client->getGuzzleClient()->post(static::URL_REQUEST_BASE, ['body' => \GuzzleHttp\Psr7\Utils::streamFor($body)]);
         $response = json_decode($result->getBody(), true);
         if($result->getStatusCode() !== 200) {
             throw new \Exception("An error occurred");

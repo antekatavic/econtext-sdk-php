@@ -1,6 +1,6 @@
 {
-    "name":"info-com/econtext-sdk-php",
-    "description":"A PHP client to interact with the eContext API",
+    "name":"antekatavic/econtext-sdk-php",
+    "description":"A PHP client to interact with the eContext API (Guzzle 7 support)",
     "type":"library",
     "homepage":"http://www.econtext.com",
     "license":"LGPL-3.0+",
@@ -18,7 +18,7 @@
     },
     
     "require": {
-        "guzzlehttp/guzzle": "^6.1",
+        "guzzlehttp/guzzle": "^7.1",
         "info-com/econtext-lib-file": "*"
     }
 }
